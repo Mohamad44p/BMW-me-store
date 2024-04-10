@@ -28,9 +28,9 @@ export default function VideoCarousel() {
   useEffect(() => {
     if (videoRef.current[videoId]) {
       if (isPlaying) {
-        videoRef.current[videoId].play();
+        videoRef.current[videoId]?.play();
       } else {
-        videoRef.current[videoId].pause();
+        videoRef.current[videoId]?.pause();
       }
     }
   }, [isPlaying, videoId]);
