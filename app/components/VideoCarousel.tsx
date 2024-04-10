@@ -11,10 +11,9 @@ import { useGSAP } from "@gsap/react";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function VideoCarousel() {
-  const videoRef = useRef<(HTMLVideoElement | null)[]>(Array.from({ length: hightlightsSlides.length }, () => null));
+  const videoRef = useRef<(HTMLVideoElement | null)[]>([]);
   const videoSpanRef = useRef<any[]>([]);
   const videoDivRef = useRef<any[]>([]);
-  
 
   const [video, setVideo] = useState({
     isEnd: false,
@@ -29,9 +28,9 @@ export default function VideoCarousel() {
   useEffect(() => {
     if (videoRef.current[videoId]) {
       if (isPlaying) {
-        videoRef.current[videoId]?.play();
+        videoRef.current[videoId].play();
       } else {
-        videoRef.current[videoId]?.pause();
+        videoRef.current[videoId].pause();
       }
     }
   }, [isPlaying, videoId]);
